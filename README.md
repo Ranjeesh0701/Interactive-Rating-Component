@@ -36,7 +36,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: (https://github.com/Ranjeesh0701/Interactive-Rating-Component.git)
-- Live Site URL: (https://your-live-site-url.com)
+- Live Site URL: (https://ranjeesh0701.github.io/Interactive-Rating-Component/)
 
 ## My process
 
