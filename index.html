@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Interactive rating component</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        font-family: "Overpass", sans-serif;
+      }
+      .container {
+        background-color: hsl(216, 12%, 8%);
+        min-height: 100vh;
+        min-width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .component, .thank-you-component {
+        background: radial-gradient(circle at 50% 0%, #252d37, #181b24);
+        padding: 30px;
+        border-radius: 30px;
+        width: 400px;
+      }
+      .component {
+        display: block;
+      }
+      .thank-you-component {
+        text-align: center;
+        padding-top: 44px;
+        padding-bottom: 44px;
+        display: none;
+      }
+      .title p {
+        color: hsl(0, 0%, 100%);
+        font-size: 26px;
+        font-weight: 700;
+        padding-top: 30px;
+      }
+      .description p {
+        color: hsl(217, 12%, 63%);
+        font-size: 15px;
+        padding-top: 10px;
+      }
+      .submit-button {
+        background-color: hsl(25, 97%, 53%);
+        outline: none;
+        border: none;
+        width: 100%;
+        padding: 12px;
+        font-weight: 500;
+        color: hsl(0, 0%, 100%);
+        font-size: 15px;
+        letter-spacing: 2px;
+        border-radius: 40px;
+        transition: 0.3s linear;
+      }
+      .submit-button:hover {
+        color: hsl(25, 97%, 53%);
+        background-color: hsl(0, 0%, 100%);
+        cursor: pointer;
+      }
+      .ratings {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 30px 0px;
+      }
+      .ratings .rating {
+        background-color: hsl(213, 19%, 18%);
+        color: hsl(217, 12%, 63%);
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        font-size: 15px;
+        cursor: pointer;
+        transition: 0.3s linear;
+      }
+      .ratings .rating:hover {
+        background-color: hsl(25, 97%, 53%);
+        color: hsl(0, 0%, 100%);
+      }
+      .star-component {
+        background-color: hsl(213, 19%, 18%);
+        width: max-content;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+      }
+      .selected {
+        background-color: hsl(217, 12%, 63%) !important;
+        color:hsl(0, 0%, 100%) !important;
+      }
+      .selection {
+        padding-top: 30px;
+      }
+      .selection .content {
+        background-color: hsl(213, 19%, 18%);
+        width: max-content;
+        margin: auto;
+        padding: 5px 15px;
+        border-radius: 20px;
+        color: hsl(25, 97%, 53%);
+      }
+      @media (max-width: 420px) {
+        .component, .thank-you-component {
+          border-radius: 10px;
+          margin: 30px;
+        }
+        .thank-you-component {
+          padding-top: 50px;
+          padding-bottom: 50px;
+        }
+        .ratings .rating {
+          width: 40px;
+          height: 40px;
+          font-size: 14px;
+        }
+        .title p {
+          padding-top: 20px;
+          font-size: 24px;
+        }
+        .description p {
+          font-size: 13px;
+          line-height: 1.3rem;
+        }
+        .submit-button {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <div class="component">
+          <div class="star-component">
+            <img src="./images/icon-star.svg" alt="" />
+          </div>
+          <div class="title"><p>How did we do?</p></div>
+          <div class="description">
+            <p>
+              Please let us know how we did with your support request. All
+              feedback is appreciated to help us improve our offering!
+            </p>
+          </div>
+          <div class="ratings">
+            <div class="rating" data-rating="1">1</div>
+            <div class="rating" data-rating="2">2</div>
+            <div class="rating" data-rating="3">3</div>
+            <div class="rating" data-rating="4">4</div>
+            <div class="rating" data-rating="5">5</div>
+          </div>
+          <div class="submit-container">
+            <button class="submit-button">SUBMIT</button>
+          </div>
+        </div>
+        <div class="thank-you-component">
+          <div class="illustration">
+            <img src="./images/illustration-thank-you.svg" alt="">
+          </div>
+          <div class="selection">
+            <div class="content">
+              <p>You selected <span class="selectedRating"></span> out of 5</p>
+            </div>
+          </div>
+          <div class="title"><p>Thank you!</p></div>
+          <div class="description"><p>We appreciate you taking the time to give a rating. If you ever need more support, don't hesitate to get in touch!</p></div>
+        </div>
+      </div>
+    </main>
+    <script src="./index.js"></script>
+  </body>
+</html>
